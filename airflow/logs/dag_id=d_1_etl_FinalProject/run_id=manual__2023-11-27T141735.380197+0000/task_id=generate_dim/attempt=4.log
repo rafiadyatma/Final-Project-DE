@@ -1,0 +1,32 @@
+[2023-11-28 10:06:48,160] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_etl_FinalProject.generate_dim manual__2023-11-27T14:17:35.380197+00:00 [queued]>
+[2023-11-28 10:06:48,170] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_etl_FinalProject.generate_dim manual__2023-11-27T14:17:35.380197+00:00 [queued]>
+[2023-11-28 10:06:48,171] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-28 10:06:48,172] {taskinstance.py:1357} INFO - Starting attempt 4 of 4
+[2023-11-28 10:06:48,172] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-28 10:06:48,188] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): generate_dim> on 2023-11-27 14:17:35.380197+00:00
+[2023-11-28 10:06:48,203] {standard_task_runner.py:52} INFO - Started process 2590 to run task
+[2023-11-28 10:06:48,206] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'd_1_etl_FinalProject', 'generate_dim', 'manual__2023-11-27T14:17:35.380197+00:00', '--job-id', '72', '--raw', '--subdir', 'DAGS_FOLDER/d_1_etl_FinalProject.py', '--cfg-path', '/tmp/tmp30m8ems1', '--error-file', '/tmp/tmp2t08tudo']
+[2023-11-28 10:06:48,207] {standard_task_runner.py:80} INFO - Job 72: Subtask generate_dim
+[2023-11-28 10:06:48,356] {task_command.py:369} INFO - Running <TaskInstance: d_1_etl_FinalProject.generate_dim manual__2023-11-27T14:17:35.380197+00:00 [running]> on host 92ab6769debf
+[2023-11-28 10:06:48,431] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=d_1_etl_FinalProject
+AIRFLOW_CTX_TASK_ID=generate_dim
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-27T14:17:35.380197+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-27T14:17:35.380197+00:00
+[2023-11-28 10:06:48,432] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/d_1_etl_FinalProject.py", line 11, in generate_dim_func
+    generate_dim_script.load_dim_district()
+TypeError: load_dim_district() missing 2 required positional arguments: 'mysql_conn' and 'postgres_conn'
+[2023-11-28 10:06:48,447] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=d_1_etl_FinalProject, task_id=generate_dim, execution_date=20231127T141735, start_date=20231128T100648, end_date=20231128T100648
+[2023-11-28 10:06:48,462] {standard_task_runner.py:97} ERROR - Failed to execute job 72 for task generate_dim (load_dim_district() missing 2 required positional arguments: 'mysql_conn' and 'postgres_conn'; 2590)
+[2023-11-28 10:06:48,500] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-11-28 10:06:48,536] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

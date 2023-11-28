@@ -2,13 +2,13 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime
 from modules import get_data_from_api_script
+from modules import generate_dim_script
 
 def get_data_from_api_func():
     get_data_from_api_script.get_data_from_api()
 
-def generate_dim_func():
-    # Your logic for generating dimensions goes here
-    pass
+def generate_dim_func(**kwargs):
+    generate_dim_script.load_dimension_tables(**kwargs)
 
 def insert_district_daily_func():
     # Your logic for inserting district daily data goes here
@@ -32,7 +32,8 @@ with DAG(
 
     generate_dim = PythonOperator(
         task_id='generate_dim',
-        python_callable=generate_dim_func
+        python_callable=generate_dim_func,
+        provide_context=True
     )
 
     insert_district_daily = PythonOperator(
