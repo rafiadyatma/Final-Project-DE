@@ -6,7 +6,7 @@ from airflow.models import Variable
 from airflow.operators.python import PythonOperator
 from airflow.operators.postgres_operator import PostgresOperator
 
-# Function to get MySQL connection
+# Get MySQL connection
 def get_mysql_connection():
     return mysql.connector.connect(
         host='192.168.100.11',

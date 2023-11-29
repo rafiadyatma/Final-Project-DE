@@ -3,6 +3,8 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime
 from modules import get_data_from_api_script
 from modules import generate_dim_script
+from modules import insert_province_daily_script
+from modules import insert_district_daily_script
 
 def get_data_from_api_func():
     get_data_from_api_script.get_data_from_api()
@@ -11,12 +13,10 @@ def generate_dim_func(**kwargs):
     generate_dim_script.load_dimension_tables(**kwargs)
 
 def insert_district_daily_func():
-    # Your logic for inserting district daily data goes here
-    pass
+   insert_district_daily_script.insert_district_daily()
 
 def insert_province_daily_func():
-    # Your logic for inserting province daily data goes here
-    pass
+    insert_province_daily_script.insert_province_daily()
 
 with DAG(
     dag_id='d_1_etl_FinalProject',

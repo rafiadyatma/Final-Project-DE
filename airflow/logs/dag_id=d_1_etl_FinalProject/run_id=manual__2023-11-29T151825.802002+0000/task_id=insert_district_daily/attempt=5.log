@@ -1,0 +1,24 @@
+[2023-11-29 15:42:19,624] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_etl_FinalProject.insert_district_daily manual__2023-11-29T15:18:25.802002+00:00 [queued]>
+[2023-11-29 15:42:19,659] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_etl_FinalProject.insert_district_daily manual__2023-11-29T15:18:25.802002+00:00 [queued]>
+[2023-11-29 15:42:19,661] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-29 15:42:19,664] {taskinstance.py:1357} INFO - Starting attempt 5 of 5
+[2023-11-29 15:42:19,670] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-29 15:42:19,709] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): insert_district_daily> on 2023-11-29 15:18:25.802002+00:00
+[2023-11-29 15:42:19,744] {standard_task_runner.py:52} INFO - Started process 6225 to run task
+[2023-11-29 15:42:19,753] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'd_1_etl_FinalProject', 'insert_district_daily', 'manual__2023-11-29T15:18:25.802002+00:00', '--job-id', '108', '--raw', '--subdir', 'DAGS_FOLDER/d_1_etl_FinalProject.py', '--cfg-path', '/tmp/tmprmu6m_93', '--error-file', '/tmp/tmp6rrzbr_q']
+[2023-11-29 15:42:19,757] {standard_task_runner.py:80} INFO - Job 108: Subtask insert_district_daily
+[2023-11-29 15:42:19,925] {task_command.py:369} INFO - Running <TaskInstance: d_1_etl_FinalProject.insert_district_daily manual__2023-11-29T15:18:25.802002+00:00 [running]> on host 92ab6769debf
+[2023-11-29 15:42:20,081] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=d_1_etl_FinalProject
+AIRFLOW_CTX_TASK_ID=insert_district_daily
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-29T15:18:25.802002+00:00
+AIRFLOW_CTX_TRY_NUMBER=5
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-29T15:18:25.802002+00:00
+[2023-11-29 15:42:20,301] {logging_mixin.py:115} INFO - Error: (1055, "Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'mysql.covid_jabar.kode_kab' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by")
+[2023-11-29 15:42:20,303] {python.py:173} INFO - Done. Returned value was: None
+[2023-11-29 15:42:20,321] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=d_1_etl_FinalProject, task_id=insert_district_daily, execution_date=20231129T151825, start_date=20231129T154219, end_date=20231129T154220
+[2023-11-29 15:42:20,368] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-11-29 15:42:20,410] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

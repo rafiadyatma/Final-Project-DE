@@ -1,0 +1,23 @@
+[2023-11-29 16:18:12,402] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_etl_FinalProject.insert_province_daily manual__2023-11-29T15:18:25.802002+00:00 [queued]>
+[2023-11-29 16:18:12,420] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_etl_FinalProject.insert_province_daily manual__2023-11-29T15:18:25.802002+00:00 [queued]>
+[2023-11-29 16:18:12,421] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-29 16:18:12,422] {taskinstance.py:1357} INFO - Starting attempt 6 of 6
+[2023-11-29 16:18:12,423] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-29 16:18:12,450] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): insert_province_daily> on 2023-11-29 15:18:25.802002+00:00
+[2023-11-29 16:18:12,468] {standard_task_runner.py:52} INFO - Started process 7006 to run task
+[2023-11-29 16:18:12,470] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'd_1_etl_FinalProject', 'insert_province_daily', 'manual__2023-11-29T15:18:25.802002+00:00', '--job-id', '115', '--raw', '--subdir', 'DAGS_FOLDER/d_1_etl_FinalProject.py', '--cfg-path', '/tmp/tmphwqon0a2', '--error-file', '/tmp/tmp2s36kdhg']
+[2023-11-29 16:18:12,473] {standard_task_runner.py:80} INFO - Job 115: Subtask insert_province_daily
+[2023-11-29 16:18:12,607] {task_command.py:369} INFO - Running <TaskInstance: d_1_etl_FinalProject.insert_province_daily manual__2023-11-29T15:18:25.802002+00:00 [running]> on host 92ab6769debf
+[2023-11-29 16:18:12,733] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=d_1_etl_FinalProject
+AIRFLOW_CTX_TASK_ID=insert_province_daily
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-29T15:18:25.802002+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-29T15:18:25.802002+00:00
+[2023-11-29 16:18:13,227] {python.py:173} INFO - Done. Returned value was: None
+[2023-11-29 16:18:13,246] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=d_1_etl_FinalProject, task_id=insert_province_daily, execution_date=20231129T151825, start_date=20231129T161812, end_date=20231129T161813
+[2023-11-29 16:18:13,293] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-11-29 16:18:13,331] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
