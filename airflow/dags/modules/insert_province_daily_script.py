@@ -24,19 +24,16 @@ def insert_province_daily():
     cursor_mysql = connection_mysql.cursor()
 
     try:
-        # Select the database for PostgreSQL
+        
         cursor_postgres.execute("SET search_path TO dwh;")
 
-        # Fetch distinct statuses from dim_case
         query_dim_case = "SELECT id, status FROM public.dim_case"
         cursor_postgres.execute(query_dim_case)
         dim_case_data = cursor_postgres.fetchall()
 
-        # Loop through each status in dim_case and insert data into PostgreSQL
         for dim_case_row in dim_case_data:
             case_id, status = dim_case_row
 
-            # Fetch data from MySQL for the current status
             query_mysql = f"""
                 SELECT 
                     kode_prov,
@@ -49,18 +46,15 @@ def insert_province_daily():
             cursor_mysql.execute(query_mysql)
             mysql_data = cursor_mysql.fetchall()
 
-            # Insert data into PostgreSQL for the current status
             insert_query = """
                 INSERT INTO public.province_daily (province_id, case_id, date, total)
                 VALUES (%s, %s, %s, %s)
             """
 
-            # Map case_id to the corresponding value from dim_case
             cursor_postgres.executemany(
                 insert_query, [(row[0], case_id, row[1], row[2]) for row in mysql_data]
             )
 
-        # Commit the transaction
         connection_postgres.commit()
 
     except Exception as e:

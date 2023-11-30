@@ -6,7 +6,7 @@ from airflow.models import Variable
 from airflow.operators.python import PythonOperator
 from airflow.operators.postgres_operator import PostgresOperator
 
-# Get MySQL connection
+# connect to mysql
 def get_mysql_connection():
     return mysql.connector.connect(
         host='192.168.100.11',
@@ -16,7 +16,7 @@ def get_mysql_connection():
         database='mysql'
     )
 
-# Function to get PostgreSQL connection
+# connect to postgres
 def get_postgres_connection():
     return psycopg2.connect(
         host='192.168.100.11',
@@ -26,19 +26,15 @@ def get_postgres_connection():
         database='dwh'
     )
 
-# Function to create and load data into dimension tables
 def load_dimension_tables(**kwargs):
     ti = kwargs['ti']
     mysql_conn = get_mysql_connection()
     postgres_conn = get_postgres_connection()
 
-    # Load data into dim_province table
     ti.xcom_push(key='dim_province_data', value=load_dim_province(mysql_conn, postgres_conn))
 
-    # Load data into dim_district table
     ti.xcom_push(key='dim_district_data', value=load_dim_district(mysql_conn, postgres_conn))
 
-    # Close connections
     mysql_conn.close()
     postgres_conn.close()
 
